@@ -192,15 +192,14 @@ Below are the step-by-step installation commands:
     make install
     cd ../../python_orocos_kdl
     mkdir -p build && cd build
-    # ** IF YOU USE VIRTUALENV: USE $VIRTUAL_ENV BELOW **
+    # ** IF YOU USE VIRTUALENV: USE $VIRTUAL_ENV BELOW ** (-DPYTHON_EXECUTABLE=$VIRTUAL_ENV/bin/python \)
     # ** IF YOU USE CONDA: REMOVE the -DPYTHON_EXECUTABLE FLAG **
     # ** IF YOU USE NEITHER VIRTUALENV NOR CONDA: YOU MAY NEED TO EDIT -DPYTHON_EXECUTABLE **
     cmake .. \
-      -DPYTHON_EXECUTABLE=$VIRTUAL_ENV/bin/python \
       -DCMAKE_PREFIX_PATH=$( cd ../../orocos_kdl/release && pwd )
     make -j8
-    # ** IF YOU USE CONDA: REPLACE $VIRTUAL_ENV WITH $CONDA_PREFIX **
-    cp PyKDL.so $VIRTUAL_ENV/lib/python3.8/site-packages
+    # ** IF YOU USE VIRTUAL ENV: REPLACE $VIRTUAL_ENV WITH $VIRTUAL_ENV **
+    cp PyKDL.so $CONDA_PREFIX/lib/python3.8/site-packages
     cd ../../..
 
     # Download data.
